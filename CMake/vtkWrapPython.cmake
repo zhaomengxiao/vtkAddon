@@ -1,6 +1,11 @@
 #
 # CMake implementation of the Wrap Python command.
 #
+if(POLICY CMP0148) 
+  cmake_policy(SET CMP0148 OLD) 
+endif()
+
+
 macro(VTK_WRAP_PYTHON2 TARGET SOURCE_LIST_NAME)
   # convert to the WRAP3 signature
   vtk_wrap_python3(${TARGET} ${SOURCE_LIST_NAME} "${ARGN}")
